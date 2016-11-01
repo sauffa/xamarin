@@ -30,7 +30,7 @@ namespace App6
             var httpClient = new HttpClient();
 
             var stud = new Students
-            {
+            {//gygygygg
                 Id =  Convert.ToInt32(ID.Text),
                 Department = department.Text,
                 fullname = fullname.Text
