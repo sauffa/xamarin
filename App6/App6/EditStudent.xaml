@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="App6.EditStudent">
+
+  <StackLayout  Orientation="Vertical">
+    <Label Text="ID"></Label>
+    <Entry x:Name="ID"  Text="{Binding Id}"></Entry>
+
+    <Label Text="fullname"></Label>
+    
+    <Entry x:Name="fullname" Text="{Binding fullname}"></Entry>
+    <Label Text="Department"></Label>
+    <Entry x:Name="department" Text="{Binding department}" ></Entry>
+    <Button Text="Edit" Clicked="Edit"></Button>
+    <Button Text="Delete" Clicked="Delete"></Button>
+
+  </StackLayout>
+
+ 
+
+</ContentPage>

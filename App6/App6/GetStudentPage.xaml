@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="App6.GetStudentPage">
+  
+
+  <StackLayout Orientation="Vertical">
+
+
+
+    <Label Text="Liste des etudiants"
+            ></Label>
+
+    <Button Text="Add Student" Clicked="addStudent"></Button>
+    <Grid>
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="1*"/>
+        <ColumnDefinition Width="1*"/>
+        <ColumnDefinition Width="1*"/>
+
+      </Grid.ColumnDefinitions >
+      <Label Text="Id"
+             Grid.Column="0" FontSize="10" TextColor="Red"/>
+      <Label  Text="fullname"
+           Grid.Column="1" FontSize="10"  TextColor="Red"/>
+      <Label Text="Department"
+           Grid.Column="2" FontSize="10" TextColor="Red"/>
+ 
+    </Grid>
+    <ListView x:Name="test" HasUnevenRows="True" ItemTapped="clicked">
+      <ListView.ItemTemplate >
+        <DataTemplate>
+          <ViewCell >
+            <Grid>
+              <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+
+              </Grid.ColumnDefinitions>
+              <Label Text="{Binding Id}"
+                     Grid.Column="0" FontSize="10"/>
+              <Label Text="{Binding fullname}"
+                   Grid.Column="1" FontSize="10"/>
+              <Label Text="{Binding Department}"
+                   Grid.Column="2" FontSize="10"/>
+            </Grid>
+
+
+          </ViewCell>
+        </DataTemplate>
+      </ListView.ItemTemplate>
+    </ListView>
+
+  </StackLayout>
+</ContentPage>
