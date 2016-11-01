@@ -15,17 +15,31 @@ namespace App6
         string url = "http://mystudents.azurewebsites.net/api/studentsApi";
         public GetStudentPage()
         {
+            var didCrashInLastSession = HockeyApp.CrashManager.DidCrashInLastSession;
+
             InitializeComponent();
             DownloadStudentsAsync();
         }
 
         private async Task DownloadStudentsAsync()
         {
+      
             var httpClient = new HttpClient();
             string json = await httpClient.GetStringAsync(url);
 
             var students = JsonConvert.DeserializeObject<List<Students>>(json);
             test.ItemsSource = students;
+
+            HockeyApp.MetricsManager.TrackEvent(
+                 "DownloadStudentsAsync()",
+                 new Dictionary<string, string>
+                 {
+                        { "time", DateTime.UtcNow.ToString() }
+                 },
+                 new Dictionary<string, double>
+                 {
+                        { "value", 1.0 }
+                 });
         }
 
         private async void clicked(object o, EventArgs e)
